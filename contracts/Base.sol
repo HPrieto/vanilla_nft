@@ -179,7 +179,7 @@ contract Base is AccessControl {
 
     NFT memory _token = NFT({
       traits: _traits,
-      birthTime: uint64(now),
+      createTime: uint64(now),
       cooldownEndBlock: 0,
       matronId: uint32(_matronId),
       sireId: uint32(_sireId),
@@ -204,7 +204,7 @@ contract Base is AccessControl {
 
     // This will assign ownership, and also emit the Transfer event as
     // per ERC721 draft
-    _transfer(0, _owner, newTokenId);
+    _transfer(address(0), _owner, newTokenId);
 
     return newTokenId;
   }
