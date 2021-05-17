@@ -10,11 +10,21 @@ contract Base is AccessControl {
   /// @dev The Birth event is fired whenever a new token comes into existence. This obviously
   ///  includes any time a cat is created through the giveBirth method, but it is also called
   ///  when a new gen0 token is created.
-  event Birth(address owner, uint256 tokenId, uint256 matronId, uint256 sireId, uint256 traits);
+  event Birth(
+    address owner,
+    uint256 tokenId,
+    uint256 matronId,
+    uint256 sireId,
+    uint256 traits
+  );
 
   /// @dev Transfer event as defined in current draft of ERC721. Emitted every time
   ///  ownership is assigned.
-  event Transfer(address from, address to, uint256);
+  event Transfer(
+    address from,
+    address to,
+    uint256
+  );
 
   /*** DATA TYPES ***/
 
@@ -127,7 +137,13 @@ contract Base is AccessControl {
   //SiringClockAuction public siringAuction;
 
   /// @dev Assigns ownership of a specific NFT to an address.
-  function _transfer(address _from, address _to, uint256 _tokenId) internal {
+  function _transfer(
+    address _from,
+    address _to,
+    uint256 _tokenId
+  )
+    internal
+  {
     // Since the number of tokens is capped to 2^32 we can't overflow this
     ownershipTokenCount[_to]++;
     // transfer ownership
